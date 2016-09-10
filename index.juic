@@ -8,34 +8,24 @@
   <link rel="stylesheet" href="http://static.xinhuaapp.com/css/mobase.css" />
   <link rel="stylesheet" href="/static/css/index.css"/>
   <script charset="utf-8" src="http://static.xinhuaapp.com/js/zepto-1.1.6.min.js"></script>
+  <script charset="utf-8" src="http://static.xinhuaapp.com/js/juicer-min.js"></script>
 </head>
 <body>
 <div class="fn-contain">
-  <div class="lv-list">
-    <ul>
-      <li>
-        <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
-        <div class="pic">
-          <em>直播</em>
-          <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
-        </div>
-        <div class="other fn-clear">
-          <span>45000人参与</span>
-          <em>正在直播</em>
-        </div>
-      </li>
-      <li>
-        <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
-        <div class="pic">
-          <em>直播</em>
-          <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
-        </div>
-        <div class="other fn-clear">
-          <span>45000人参与</span>
-          <em>正在直播</em>
-        </div>
-      </li>
-    </ul>
+  <div id="j-livelist" class="lv-list">
+    <script type="text/template">
+    <li data-id="1">
+      <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
+      <div class="pic">
+        <em>直播</em>
+        <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
+      </div>
+      <div class="other fn-clear">
+        <span>45000人参与</span>
+        <em>正在直播</em>
+      </div>
+    </li>
+    </script>
   </div>
   <div id="j-loadmore" class="lv-more">
     <span>点击加载更多</span>
@@ -45,6 +35,7 @@
 <script>
 var listApi = "${{newslistServer}}";
 </script>
+<script charset="utf-8" src="/static/js/common.js"></script>
 <script charset="utf-8" src="/static/js/index.js"></script>
 </body>
 </html>

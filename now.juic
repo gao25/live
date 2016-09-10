@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>现场</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="stylesheet" href="http://static.xinhuaapp.com/css/mobase.css" />
+  <link rel="stylesheet" href="/static/css/now.css"/>
+  <script charset="utf-8" src="http://static.xinhuaapp.com/js/zepto-1.1.6.min.js"></script>
+</head>
+<body>
+<div class="fn-contain">
+  <div class="lv-live">
+    <div class="fixed">
+      <div class="player">
+        <div class="title fn-ellipsis">
+          <em class="sp-icon sp-icon-back"></em>
+          七夕美女街头出租自己，约吗？
+        </div>
+        <em class="comein">45000人参与</em>
+        <video src="null" poster="http://img-xhpfm.zhongguowangshi.com/Live/201608/786bab216c8948228b14052ad4d1f5dc.jpg@640w_360h_1e_1c_80Q.jpg" controls="controls" webkit-playsinline="webkit-playsinline" x-webkit-airplay="allow"></video>
+      </div>
+    </div>
+  </div>
+  <div id="j-news" class="lv-news">
+    <ul>
+      <li>
+        <div class="headpic"><img src="/static/img/xc.jpg"></div>
+        <div class="uname">王小二</div>
+        <div class="content">除了您已经在线性渐变中看到的起始位置，方向，和颜色，径向梯度允许你指定渐变的形状（圆形或椭圆形）和大小（最近端，最近角，最远端，最远角，包含或覆盖）。</div>
+        <div class="imgwrap fn-clear">
+          <span data-img="/static/img/xc.jpg"></span>
+        </div>
+        <div class="down fn-clear">
+          <span class="fn-left">09:09</span>
+          <span class="fn-right">
+            <em class="sp-icon sp-icon-act"></em>
+          </span>
+        </div>
+        <div class="remark">
+          <em></em>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="j-loadmore" class="lv-more">
+    <span>点击加载更多</span>
+  </div>
+</div>
+<script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/sugar.js"></script>
+<script>
+var listApi = "${{newslistServer}}";
+</script>
+<script charset="utf-8" src="/static/js/common.js"></script>
+<script charset="utf-8" src="/static/js/now.js"></script>
+</body>
+</html>

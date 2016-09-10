@@ -1,0 +1,136 @@
+@import "/style/common.styl";
+@import "icon.styl";
+
+.lv-live
+  height rem(422)
+  .fixed
+    position fixed
+    left 0
+    right 0
+    top 0
+    z-index 50
+  .player
+    position relative
+    margin auto
+    width rem(750)
+    .title
+      position absolute
+      width rem(750)
+      line-height rem(75)
+      color #fff
+      background linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0))
+      em
+        float left
+    .comein
+      position absolute
+      right 1rem
+      bottom 1rem
+      color #fff
+      background-color rgba(0,0,0,0.5)
+    video
+      display block
+      width rem(750)
+      height rem(422)
+
+.lv-news
+  li
+    padding rem(25) rem(20) rem(25) rem(125)
+    border-bottom solid 1px #e5e5e5
+    .headpic
+      position absolute
+      margin-left rem(-100)
+      width rem(80)
+      height rem(80)
+      border-radius 50%
+      overflow hidden
+      img
+        display block
+        width 100%
+    .uname
+      color #5885d7
+    .content
+      color #707070
+    .imgwrap
+      span
+        float left
+        width rem(330)
+        height rem(200)
+        overflow hidden
+    .imgwrap2
+      span
+        float left
+        margin rem(9) rem(9) 0 0
+        width rem(260)
+        height rem(196)
+        overflow hidden
+    .down
+      margin-top rem(9)
+      span
+        height rem(45)
+        line-height @height
+        overflow hidden
+      em
+        display block
+        margin rem(-15) rem(-18) 0 0
+    .remark
+      background-color #f3f3f5
+      margin-top rem(32)
+      min-height rem(20)
+      em
+        position absolute
+        margin rem(-34) 0 0 rem(28)
+        border solid rem(18) #f3f3f5
+        border-color transparent transparent #f3f3f5 transparent
+
+    
+
+
+  .title
+    padding 0 rem(20)
+    line-height rem(80)
+    font-size rem(36)
+  .pic
+    position relative
+    height rem(422)
+    overflow hidden
+    p
+      height rem(422)
+      background-color #eee
+    em
+      position absolute
+      top rem(32)
+      right rem(24)
+      padding rem(4) rem(16)
+      border solid 1px #fff
+      border-radius rem(10)
+      color #fff
+      text-shadow 1px 1px 1px rgba(0,0,0,0.7)
+      box-shadow 1px 1px 1px rgba(0,0,0,0.7)
+      font-size rem(32)
+  .other
+    padding rem(16) rem(20)
+    color #22e3d5
+    span
+      float left
+      line-height rem(54)
+      font-size rem(32)
+    em
+      float right
+      background-color #ff9000
+      color #fff
+      padding rem(6) rem(16)
+      border-radius rem(10)
+      font-size rem(28)
+    
+.lv-more
+  padding rem(30)
+  span
+    display block
+    margin auto
+    width rem(400)
+    padding rem(20) 0
+    text-align center
+    background-color #fff
+    border-radius rem(10)
+    color #666
+
