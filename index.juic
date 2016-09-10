@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>现场列表</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="stylesheet" href="http://static.xinhuaapp.com/css/mobase.css" />
+  <link rel="stylesheet" href="/static/css/index.css"/>
+  <script charset="utf-8" src="http://static.xinhuaapp.com/js/zepto-1.1.6.min.js"></script>
+</head>
+<body>
+<div class="fn-contain">
+  <div class="lv-list">
+    <ul>
+      <li>
+        <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
+        <div class="pic">
+          <em>直播</em>
+          <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
+        </div>
+        <div class="other fn-clear">
+          <span>45000人参与</span>
+          <em>正在直播</em>
+        </div>
+      </li>
+      <li>
+        <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
+        <div class="pic">
+          <em>直播</em>
+          <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
+        </div>
+        <div class="other fn-clear">
+          <span>45000人参与</span>
+          <em>正在直播</em>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="j-loadmore" class="lv-more">
+    <span>点击加载更多</span>
+  </div>
+</div>
+<script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/sugar.js"></script>
+<script>
+var listApi = "${{newslistServer}}";
+</script>
+<script charset="utf-8" src="/static/js/index.js"></script>
+</body>
+</html>
