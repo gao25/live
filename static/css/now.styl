@@ -1,6 +1,20 @@
 @import "/style/common.styl";
 @import "icon.styl";
 
+/* 图文直播 */
+.lv-piclive
+  .pic
+    height rem(300)
+    background-color #eee
+    overflow hidden
+  .note
+    padding rem(20) rem(25)
+    background-color #fff
+    border-bottom solid rem(10) #eee
+    color #535353
+    line-height 1.5
+
+/* 音视频直播 */
 .lv-live
   height rem(422)
   .fixed
@@ -9,6 +23,8 @@
     right 0
     top 0
     z-index 50
+
+.lv-piclive, .lv-live
   .player
     position relative
     margin auto
@@ -23,8 +39,10 @@
         float left
     .comein
       position absolute
-      right 1rem
-      bottom 1rem
+      right rem(20)
+      bottom rem(20)
+      padding rem(5) rem(20)
+      border-radius rem(40)
       color #fff
       background-color rgba(0,0,0,0.5)
     video
@@ -49,88 +67,95 @@
     .uname
       color #5885d7
     .content
+      margin-top rem(10)
       color #707070
+      line-height 1.5
     .imgwrap
       span
         float left
+        margin-top rem(10)
         width rem(330)
         height rem(200)
         overflow hidden
     .imgwrap2
       span
         float left
-        margin rem(9) rem(9) 0 0
+        margin rem(10) rem(10) 0 0
         width rem(260)
         height rem(196)
         overflow hidden
     .down
-      margin-top rem(9)
+      position relative
+      margin-top rem(20)
+      color #b5b5b5
       span
         height rem(45)
         line-height @height
         overflow hidden
-      em
-        display block
-        margin rem(-15) rem(-18) 0 0
+      .act
+        position absolute
+        top rem(-15)
+        right rem(-18)
+      .actlayer
+        position absolute
+        top rem(-15)
+        right rem(45)
+        background-color #535353
+        line-height rem(75)
+        color #fff
+        border-radius rem(10)
+        p
+          float left
+          padding 0 rem(40) 0 rem(75)
+          &.line
+            margin rem(15) rem(5)
+            padding 0
+            width 1px
+            height rem(45)
+            background-color #313131
+            overflow hidden
+        em
+          position absolute
+          margin 1px 0 0 rem(-65)
+
     .remark
       background-color #f3f3f5
-      margin-top rem(32)
-      min-height rem(20)
-      em
+      margin-top rem(22)
+      .arrow
         position absolute
-        margin rem(-34) 0 0 rem(28)
+        margin rem(-16) 0 0 rem(28)
         border solid rem(18) #f3f3f5
         border-color transparent transparent #f3f3f5 transparent
+        border-top none
+      .zan
+        position relative
+        color #7399bd
+        em
+          position absolute
+          top 0
+          left 0
+        p
+          text-indent rem(45)
+          padding rem(14) rem(20)
+          word-break break-all
+          line-height 1.5
+      .line
+        height 1px
+        background-color #e5e5e5
+        overflow hidden
+      .list
+        padding rem(20)
+        color #707070
+        line-height 1.4
+        p
+          margin-top rem(14)
+          &:first-child
+            margin 0
+          span
+            color #7399bd
 
-    
-
-
-  .title
-    padding 0 rem(20)
-    line-height rem(80)
-    font-size rem(36)
-  .pic
-    position relative
-    height rem(422)
-    overflow hidden
-    p
-      height rem(422)
-      background-color #eee
-    em
-      position absolute
-      top rem(32)
-      right rem(24)
-      padding rem(4) rem(16)
-      border solid 1px #fff
-      border-radius rem(10)
-      color #fff
-      text-shadow 1px 1px 1px rgba(0,0,0,0.7)
-      box-shadow 1px 1px 1px rgba(0,0,0,0.7)
-      font-size rem(32)
-  .other
-    padding rem(16) rem(20)
-    color #22e3d5
-    span
-      float left
-      line-height rem(54)
-      font-size rem(32)
-    em
-      float right
-      background-color #ff9000
-      color #fff
-      padding rem(6) rem(16)
-      border-radius rem(10)
-      font-size rem(28)
-    
 .lv-more
-  padding rem(30)
-  span
-    display block
-    margin auto
-    width rem(400)
-    padding rem(20) 0
-    text-align center
-    background-color #fff
-    border-radius rem(10)
-    color #666
+  padding rem(50)
+  text-align center
+  color #666
 

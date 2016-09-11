@@ -1,4 +1,16 @@
 var liveCmd = {};
+// url参数
+liveCmd['urlParams'] = (function(){
+  var data = {},
+    params = document.URL.split('?')[1];
+  if (params) {
+    $.each(params.split('&'), function(){
+      var thisData = this.split('=');
+      data[thisData[0]] = thisData[1];
+    });
+  }
+  return data;
+})();
 // 弹出提示框
 liveCmd['alert'] = function(msg){
   if ($('#j-livealert').length == 0) {
@@ -38,8 +50,9 @@ liveCmd['ajax'] = function(url, data, callback) {
   $.ajax({
     type: "post",
     dataType: "json",
+    contentType: "application/json",
     url: url,
-    data: data,
+    data: JSON.stringify(data),
     success: function(res){
       callback(true, res);
     },
@@ -83,7 +96,40 @@ liveCmd['centerimg'] = function(objs){
   });
 };
 
-
+// juicer 函数
+juicer.register('formatDate', function(date, typeStr) {
+  if (date) {
+    var thisDate = new Date(date);
+  } else {
+    var thisDate = new Date();
+  }
+  var YY = thisDate.getFullYear(),
+    Y = YY.toString().substr(2, 2),
+    M = 1 + thisDate.getMonth(),
+    MM = M > 9 ? M : '0' + M,
+    D = thisDate.getDate(),
+    DD = D > 9 ? D : '0' + D,
+    h = thisDate.getHours(),
+    hh = h > 9 ? h : '0' + h,
+    m = thisDate.getMinutes(),
+    mm = m > 9 ? m : '0' + m,
+    s = thisDate.getSeconds(),
+    ss = s > 9 ? s : '0' + s;
+  var formatStr = typeStr
+    .replace(/YY/g, YY)
+    .replace(/Y/g, Y)
+    .replace(/MM/g, MM)
+    .replace(/M/g, M)
+    .replace(/DD/g, DD)
+    .replace(/D/g, D)
+    .replace(/hh/g, hh)
+    .replace(/h/g, h)
+    .replace(/mm/g, mm)
+    .replace(/m/g, m)
+    .replace(/ss/g, ss)
+    .replace(/s/g, s);
+  return formatStr;
+});
 
 
 

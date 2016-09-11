@@ -6,36 +6,47 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <link rel="stylesheet" href="http://static.xinhuaapp.com/css/mobase.css" />
-  <link rel="stylesheet" href="/static/css/index.css"/>
+  <link rel="stylesheet" href="static/css/index.css"/>
   <script charset="utf-8" src="http://static.xinhuaapp.com/js/zepto-1.1.6.min.js"></script>
   <script charset="utf-8" src="http://static.xinhuaapp.com/js/juicer-min.js"></script>
 </head>
 <body>
 <div class="fn-contain">
   <div id="j-livelist" class="lv-list">
+    {{# item.state 1:未审核 2:未开始直播 4:正在直播 8:直播结束}}
     <script type="text/template">
-    <li data-id="1">
-      <div class="title fn-ellipsis">七夕美女街头出租自己，约吗？</div>
+    {@each data as item}
+    {@if item.state != 1}
+    <li data-id="${item.id}">
+      <div class="title fn-ellipsis">${item.topic}</div>
       <div class="pic">
+        {@if item.state == 4}
         <em>直播</em>
-        <p class="j-centerimg" data-img="/static/img/xc.jpg"></p>
+        {@/if}
+        <p class="j-centerimg" data-img="${item.cover}"></p>
       </div>
       <div class="other fn-clear">
-        <span>45000人参与</span>
+        <span>${item.numofpartake}人参与</span>
+        {@if item.state == 2}
+        <em>${item.starttime|formatDate,"MM.DD hh:mm"} 开播</em>
+        {@else if item.state == 4}
         <em>正在直播</em>
+        {@/if}
       </div>
     </li>
+    {@/if}
+    {@/each}
     </script>
   </div>
   <div id="j-loadmore" class="lv-more">
     <span>点击加载更多</span>
   </div>
 </div>
-<script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/sugar.js"></script>
+<script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/base.js"></script>
 <script>
-var listApi = "${{newslistServer}}";
+var getListApi = "${{getListApi}}";
 </script>
-<script charset="utf-8" src="/static/js/common.js"></script>
-<script charset="utf-8" src="/static/js/index.js"></script>
+<script charset="utf-8" src="static/js/common.js"></script>
+<script charset="utf-8" src="static/js/index.js"></script>
 </body>
 </html>
