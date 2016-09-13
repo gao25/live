@@ -54,13 +54,12 @@
         <div class="uname">王小二</div>
         <div class="content">${item.content}</div>
         {@if item.pictures}
-        <div class="j-pictures imgwrap fn-clear" data-pictures="${item.pictures}">
-          <span data-img="/static/img/xc.jpg"></span>
+        <div class="j-pictures fn-clear" data-pictures="${item.pictures}">
         </div>
         {@/if}
         <div class="down">
           <span>${item.gmtcreate|formatDate,"MM-DD hh:mm"}</span>
-          <em class="act sp-icon sp-icon-act"></em>
+          <em class="j-downact act sp-icon sp-icon-act"></em>
           <div class="actlayer">
             <p><em class="sp-icon sp-icon-zan">&nbsp;</em>赞</p>
             <p class="line"></p>
@@ -81,7 +80,7 @@
           <div class="list">
             {@each item.comments as citem}
             <p>
-              <span>${citem.reviewer}: </span>${citem.content}
+              <span>${citem.reviewer}: </span>${citem.ccontent}
             </p>
             {@/each}
           </div>
@@ -96,11 +95,26 @@
     点击加载更多
   </div>
 </div>
+<div id="j-fullview" class="lv-fullview">
+  <div class="wrap">
+    <div id="j-viewpic" class="pic"></div>
+  </div>
+</div>
 <script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/sugar.js"></script>
+<script charset="utf-8" src="static/js/roll.js"></script>
 <script>
 var getInfoApi = "${{getInfoApi}}",
   getByIdApi = "${{getByIdApi}}";
 </script>
+
+<script>
+function executeCallback(state, res) {
+  console.log(state);
+  console.log(res);
+}
+</script>
+<iframe src="http://10.0.0.41/execute/?action=random"></iframe>
+
 <script charset="utf-8" src="static/js/common.js"></script>
 <script charset="utf-8" src="static/js/now.js"></script>
 </body>

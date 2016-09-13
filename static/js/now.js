@@ -41,8 +41,31 @@ function loadNewsList(){
           ulObj.html(newsListTpl.render(res));
           // 插入列表
           $('#j-newslist').append(ulObj);
-          // 图片居中
+          // 插入图片
+          ulObj.find('.j-pictures').each(function(){
+            var _this = $(this),
+              imgArray = $(this).data('pictures').split(',');
+            if (imgArray.length > 1) {
+              $(this).addClass('imgwrap2');
+            } else {
+              $(this).addClass('imgwrap');
+            }
+            $.each(imgArray, function(index){
+              var spanImg = $('<span data-img="'+this+'"></span>');
+              _this.append(spanImg);
+              spanImg.on(tap, function(){
+                liveCmd.viewimg(imgArray, index);
+              });
+            });
+          });
           liveCmd.centerimg(ulObj.find('.j-pictures span'));
+          // 显示互动栏
+          ulObj.find('.j-downact').on(tap, function(){
+            $(this).parent().find('.actlayer').toggle();
+            $(this).parent().find('.actlayer').on(tap, function(){
+              $(this).hide();
+            });
+          });
         } else {
           $('#j-loadmore').remove();
         }
@@ -64,4 +87,19 @@ $('#j-loadmore').on(tap, function(){
   loadNewsList();
 });
 loadNewsList();
+
+// 关闭图片浏览
+$('#j-fullview').on(touchmove, function(){
+  return false;
+});
+$('#j-viewpic').on(tap, function(){
+  return false;
+});
+$('#j-fullview').on(tap, function(){
+  $('#j-fullview').css('display', 'none');
+});
+
+
+
+
 

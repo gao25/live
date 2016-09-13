@@ -96,6 +96,19 @@ liveCmd['centerimg'] = function(objs){
   });
 };
 
+// 图片浏览
+liveCmd['viewimg'] = function(imgArray, imgIndex){
+  if (!window.newRoll) {
+    window.newRoll = new sugar['roll-1.0.0']('j-viewpic', function(index,count){
+
+    }, function(){
+      $('#j-fullview').css('display', 'none');
+    });
+  }
+  $('#j-fullview').css('display', 'block');
+  newRoll.show(imgArray, imgIndex);
+};
+
 // juicer 函数
 juicer.register('formatDate', function(date, typeStr) {
   if (date) {
