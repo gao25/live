@@ -22,6 +22,8 @@
       <div class="pic">
         {@if item.state == 4}
         <em>直播</em>
+        {@else if item.state == 8}
+        <em>重播</em>
         {@/if}
         <p class="j-centerimg" data-img="${item.cover}"></p>
       </div>

@@ -1,6 +1,6 @@
 {"status":"0","errCode":null,"errMsg":null,"data":[
-  {"gmtcreate":1473401313000,"content":"123","pictures":"static/img/xc.jpg","video":".mp4","audio":".mp3","liker":null,"comments":null},
-  {"gmtcreate":1473401313000,"content":"123","pictures":"static/img/xc.jpg","video":".mp4","audio":".mp3","liker":"小明,小红","comments":[
+  {"gmtcreate":1473401313000,"content":"123","pictures":"static/img/xc.jpg","video":"http://vod-xhpfm.zhongguowangshi.com/Live/201609/7122778ac49a484e944417e2b890b95d.mp4","audio":".mp3","liker":null,"comments":null},
+  {"gmtcreate":1473401313000,"content":"123","pictures":"static/img/xc.jpg","video":null,"audio":"http://127.0.0.1:6801/201607/mcl/bgm/bgm5.mp3","liker":"小明,小红","comments":[
     {"reviewer": "茉莉", "ccontent": "除了您已经在线性渐变中看到的起始位置，方向，和颜色，径向梯度允许"},
     {"reviewer": "茉莉", "ccontent": "赞"}
   ]}

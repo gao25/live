@@ -1,6 +1,6 @@
 // 移动端照片滑动组件
 (function(sugarname){
-  var roll = function(obj, callback, closeCallback) {
+  var roll = function(obj, callback, tapCallback) {
     if (typeof(obj) == 'object') {
       this.obj = obj;
     } else {
@@ -10,7 +10,7 @@
     this.ulObj.css('position', 'absolute');
     this.obj.append(this.ulObj);
     if (callback) this.callback = callback;
-    if (closeCallback) this.closeCallback = closeCallback;
+    if (tapCallback) this.tapCallback = tapCallback;
     this.init();
   };
   roll.prototype = {
@@ -109,7 +109,7 @@
             }, 300, function(){
               res['finish']();
               if (_this.tapReady) {
-                _this.closeCallback();
+                _this.tapCallback();
               }
             });
 
@@ -119,7 +119,7 @@
           } else {
             res['finish']();
             if (_this.tapReady) {
-               _this.closeCallback();
+               _this.tapCallback();
             }
           }
         }

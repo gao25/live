@@ -12,92 +12,120 @@
 </head>
 <body>
 <div class="fn-contain">
-  <div id="j-liveinfo">
-    {{# data.type 1:图文 2:音频 4:视频}}
-    <script type="text/template">
-    {@if data.type == 1}
-    <div class="lv-piclive">
-      <div class="player pic" data-img="${data.cover}">
-        <div class="title fn-ellipsis">
-          <em class="sp-icon sp-icon-back"></em>
-          ${data.topic}
-        </div>
-        <em class="comein">${data.numOfPartake}人参与</em>
-      </div>
-      <div class="note">
-        ${data.remark}
-      </div>
-    </div>
-    {@else}
-    <div class="lv-live">
-      <div class="fixed">
-        <div class="player"{@if data.type == 2} data-img="${data.cover}"{@/if}>
+  <div id="j-screen">
+    <div id="j-liveinfo">
+      {{# data.type 1:图文 2:音频 4:视频}}
+      <script type="text/template">
+      {@if data.type == 1}
+      <div class="lv-piclive">
+        <div class="player pic" data-img="${data.cover}">
           <div class="title fn-ellipsis">
             <em class="sp-icon sp-icon-back"></em>
             ${data.topic}
           </div>
           <em class="comein">${data.numOfPartake}人参与</em>
-          {@if data.type == 4}
-          <video src="${data.liveStreamUrl}" poster="${data.cover}" controls="controls" webkit-playsinline="webkit-playsinline" x-webkit-airplay="allow"></video>
-          {@/if}
+        </div>
+        <div class="note">
+          ${data.remark}
         </div>
       </div>
+      {@else}
+      <div class="lv-live">
+        <div class="fixed">
+          <div class="player"{@if data.type == 2} data-img="${data.cover}"{@/if}>
+            <div class="title fn-ellipsis">
+              <em class="sp-icon sp-icon-back"></em>
+              ${data.topic}
+            </div>
+            <em class="comein">${data.numOfPartake}人参与</em>
+            {@if data.type == 4}
+            <video src="${data.liveStreamUrl}" poster="${data.cover}" controls="controls" webkit-playsinline="webkit-playsinline" x-webkit-airplay="allow"></video>
+            {@/if}
+          </div>
+        </div>
+      </div>
+      {@/if}
+      </script>
     </div>
-    {@/if}
-    </script>
-  </div>
-  <div id="j-newslist" class="lv-news">
-    <script type="text/template">
-    {@each data as item}
-      <li>
-        <div class="headpic"><img src="static/img/xc.jpg"></div>
-        <div class="uname">王小二</div>
-        <div class="content">${item.content}</div>
-        {@if item.pictures}
-        <div class="j-pictures fn-clear" data-pictures="${item.pictures}">
-        </div>
-        {@/if}
-        <div class="down">
-          <span>${item.gmtcreate|formatDate,"MM-DD hh:mm"}</span>
-          <em class="j-downact act sp-icon sp-icon-act"></em>
-          <div class="actlayer">
-            <p><em class="sp-icon sp-icon-zan">&nbsp;</em>赞</p>
-            <p class="line"></p>
-            <p><em class="sp-icon sp-icon-remark">&nbsp;</em>评论</p>
+    <div id="j-newslist" class="lv-news">
+      <script type="text/template">
+      {@each data as item}
+        <li>
+          <div class="headpic"><img src="${item.head}"></div>
+          <div class="uname">${item.reporter}</div>
+          {@if item.video}
+          <div class="content">
+            <video src="${item.video}" poster="${item.pictures}" controls="controls"></video>
           </div>
-        </div>
-        {@if item.liker || item.comments}
-        <div class="remark">
-          <em class="arrow"></em>
-          {@if item.liker}
-          <div class="zan fn-clear">
-            <em class="sp-icon sp-icon-heart"></em>
-            <p>${item.liker}</p>
+          {@else if item.audio}
+          <div class="content">
+            <div class="j-audiobtn audio" data-audio="${item.audio}">
+              <em class="arrow"></em>
+              <em class="text"></em>
+            </div>
           </div>
-          <div class="line"></div>
-          {@/if}
-          {@if item.comments}
-          <div class="list">
-            {@each item.comments as citem}
-            <p>
-              <span>${citem.reviewer}: </span>${citem.ccontent}
-            </p>
-            {@/each}
+          {@else}
+          <div class="content">
+            ${item.content}
+          </div>
+          {@if item.pictures}
+          <div class="j-pictures fn-clear" data-pictures="${item.pictures}">
           </div>
           {@/if}
-        </div>
-        {@/if}
-      </li>
-    {@/each}
-    </script>
-  </div>
-  <div id="j-loadmore" class="lv-more">
-    点击加载更多
+          {@/if}
+          <div class="down">
+            <span>${item.gmtcreate|formatDate,"MM-DD hh:mm"}</span>
+            <em class="j-downact act sp-icon sp-icon-act"></em>
+            <div class="j-actlayer actlayer">
+              <p class="j-actzan"><em class="sp-icon sp-icon-zan">&nbsp;</em>赞</p>
+              <p class="line"></p>
+              <p class="j-actping"><em class="sp-icon sp-icon-remark">&nbsp;</em>评论</p>
+            </div>
+          </div>
+          {@if item.liker || item.comments}
+          <div class="remark">
+            <em class="arrow"></em>
+            {@if item.liker}
+            <div class="zan fn-clear">
+              <em class="sp-icon sp-icon-heart"></em>
+              <p>${item.liker}</p>
+            </div>
+            <div class="line"></div>
+            {@/if}
+            {@if item.comments}
+            <div class="list">
+              {@each item.comments as citem}
+              <p>
+                <span>${citem.reviewer}: </span>${citem.ccontent}
+              </p>
+              {@/each}
+            </div>
+            {@/if}
+          </div>
+          {@/if}
+        </li>
+      {@/each}
+      </script>
+    </div>
+    <div id="j-loadmore" class="lv-more">
+      点击加载更多
+    </div>
   </div>
 </div>
 <div id="j-fullview" class="lv-fullview">
   <div class="wrap">
     <div id="j-viewpic" class="pic"></div>
+  </div>
+</div>
+<div id="j-audioplay" class="fn-hide"></div>
+<div id="j-remark" class="lv-remark">
+  <div class="wrap">
+    <div class="bar">
+      <form id="j-remarkform">
+      <input type="text" placeholder="评论" name="content">
+      <input type="submit" value="发送">
+      </form>
+    </div>
   </div>
 </div>
 <script charset="utf-8" src="http://static.xinhuaapp.com/js/sugar/sugar.js"></script>
@@ -106,15 +134,6 @@
 var getInfoApi = "${{getInfoApi}}",
   getByIdApi = "${{getByIdApi}}";
 </script>
-
-<script>
-function executeCallback(state, res) {
-  console.log(state);
-  console.log(res);
-}
-</script>
-<iframe src="http://10.0.0.41/execute/?action=random"></iframe>
-
 <script charset="utf-8" src="static/js/common.js"></script>
 <script charset="utf-8" src="static/js/now.js"></script>
 </body>
